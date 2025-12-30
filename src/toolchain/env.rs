@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::env;
+
 use crate::toolchain::layout::ToolchainLayout;
 
 pub struct EnvBuilder {
@@ -10,7 +11,6 @@ impl EnvBuilder {
     pub fn new(layout: &ToolchainLayout) -> Self {
         let mut vars = HashMap::new();
 
-        // Base PATH (inherit from parent)
         let base_path = env::var("PATH").unwrap_or_default();
 
         let path = format!(
@@ -22,7 +22,6 @@ impl EnvBuilder {
 
         vars.insert("PATH".into(), path);
 
-        // INCLUDE
         let include = format!(
             "{};{}",
             layout.sdk_include.display(),
@@ -31,7 +30,6 @@ impl EnvBuilder {
 
         vars.insert("INCLUDE".into(), include);
 
-        // LIB
         let lib = format!(
             "{};{}",
             layout.sdk_lib.display(),

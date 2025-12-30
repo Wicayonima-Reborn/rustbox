@@ -1,8 +1,7 @@
-use std::path::{PathBuf};
+use std::path::PathBuf;
 
 #[derive(Debug)]
 pub struct ToolchainLayout {
-    #[allow(dead_code)]
     pub root: PathBuf,
     pub rust_bin: PathBuf,
     pub msvc_bin: PathBuf,
@@ -11,6 +10,16 @@ pub struct ToolchainLayout {
 }
 
 impl ToolchainLayout {
+    /// Root directory resolved from the running executable
+    pub fn root_from_exe() -> PathBuf {
+        let exe = std::env::current_exe()
+            .expect("cannot determine current executable path");
+
+        exe.parent()
+            .expect("executable must have a parent directory")
+            .to_path_buf()
+    }
+
     pub fn discover(root: PathBuf) -> Self {
         let toolchain = root.join("toolchain");
 

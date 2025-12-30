@@ -1,4 +1,6 @@
 use std::path::Path;
+use std::process::Command;
+
 use crate::toolchain::layout::ToolchainLayout;
 use crate::error::RustBoxError;
 
@@ -17,4 +19,26 @@ pub fn validate(layout: &ToolchainLayout) -> Result<(), RustBoxError> {
     }
 
     Ok(())
+}
+
+pub fn validate_cargo() -> Result<(), RustBoxError> {
+    let status = Command::new("cargo")
+        .arg("--version")
+        .status();
+
+    match status {
+        Ok(s) if s.success() => Ok(()),
+        _ => Err(RustBoxError::MissingTool("cargo")),
+    }
+}
+
+pub fn validate_rustc() -> Result<(), RustBoxError> {
+    let status = Command::new("rustc")
+        .arg("--version")
+        .status();
+
+    match status {
+        Ok(s) if s.success() => Ok(()),
+        _ => Err(RustBoxError::MissingTool("rustc")),
+    }
 }

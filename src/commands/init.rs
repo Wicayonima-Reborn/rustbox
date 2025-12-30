@@ -1,5 +1,4 @@
 use anyhow::Result;
-use std::env;
 
 use crate::toolchain::{
     layout::ToolchainLayout,
@@ -8,8 +7,8 @@ use crate::toolchain::{
 };
 
 pub fn run() -> Result<()> {
-    let cwd = env::current_dir()?;
-    let layout = ToolchainLayout::discover(cwd);
+    let root = ToolchainLayout::root_from_exe();
+    let layout = ToolchainLayout::discover(root);
 
     detect::validate(&layout)?;
 
