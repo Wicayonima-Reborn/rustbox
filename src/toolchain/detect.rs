@@ -1,5 +1,4 @@
 use std::path::Path;
-use std::process::Command;
 
 use crate::toolchain::layout::ToolchainLayout;
 use crate::error::RustBoxError;
