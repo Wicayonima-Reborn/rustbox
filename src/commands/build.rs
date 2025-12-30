@@ -8,6 +8,7 @@ pub fn run() -> Result<()> {
     let layout = ToolchainLayout::discover(root);
 
     detect::validate(&layout)?;
+    detect::validate_msvc_binaries(&layout)?;
     detect::validate_cargo()?;
     detect::validate_rustc()?;
 

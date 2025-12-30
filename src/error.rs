@@ -8,4 +8,7 @@ pub enum RustBoxError {
 
     #[error("Required tool not found in PATH: {0}")]
     MissingTool(&'static str),
+
+    #[error("Missing MSVC binary: {0}")]
+    MissingMsvcBinary(&'static str),
 }
