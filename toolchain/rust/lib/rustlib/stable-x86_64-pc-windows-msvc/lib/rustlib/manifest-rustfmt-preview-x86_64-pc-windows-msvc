@@ -1,7 +1,0 @@
-file:bin/cargo-fmt.exe
-file:bin/cargo-fmt.pdb
-file:bin/rustfmt.exe
-file:bin/rustfmt.pdb
-file:share/doc/rustfmt/LICENSE-APACHE
-file:share/doc/rustfmt/LICENSE-MIT
-file:share/doc/rustfmt/README.md

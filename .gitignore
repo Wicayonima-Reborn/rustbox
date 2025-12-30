@@ -1,1 +1,8 @@
 /target
+# RustBox bundled toolchains (artifacts)
+toolchain/rust/
+toolchain/msvc/
+toolchain/windows-sdk/
+
+# Distribution output
+dist/
