@@ -2,6 +2,7 @@ use std::path::{PathBuf};
 
 #[derive(Debug)]
 pub struct ToolchainLayout {
+    #[allow(dead_code)]
     pub root: PathBuf,
     pub rust_bin: PathBuf,
     pub msvc_bin: PathBuf,
