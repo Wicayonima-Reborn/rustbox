@@ -19,5 +19,10 @@ pub fn run() -> Result<()> {
         println!("{} = {}", k, v);
     }
 
+    println!("\nNote:");
+    println!("RustBox does not modify your system PATH automatically.");
+    println!("To use `rustbox` from anywhere, add the following directory to your PATH:");
+    println!("  {}", layout.root.join("bin").display());
+
     Ok(())
 }
