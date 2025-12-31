@@ -124,6 +124,20 @@ target\release\rustbox.exe
 
 ---
 
+## Adding RustBox to PATH (Optional)
+
+To run `rustbox` from any directory, add the following path to your user PATH environment variable:
+
+<rustbox_root>\bin
+
+Steps (Windows):
+1. Open Environment Variables
+2. Edit User PATH
+3. Add the path above
+4. Restart your terminal
+
+---
+
 ## Disk Usage
 
 Approximate disk usage of the bundled components:
